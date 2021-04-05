@@ -6,23 +6,20 @@
  */
 
 // function to check sock pairs
- const solution = (p, c) => {
+ const pairs = (number) => {
   let count = 0
-  let ab = p
+  let newNum = number
 
-  if(p === 0 || c === 0){
+  if(number === 0 ){
       return 0
   }
 
-  for (i = 2; i <= p; i +=2 ){
+  for (i = 2; i <= number; i +=2 ){
       count++
-         ab -= 2
-      if(count === c){
-          return count
-      }
+      newNum -= 2
   }
 
- return count
+  return count
 
 }
 
@@ -57,7 +54,7 @@ function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
   function checkPair() {
       let pair = 0
       for (const key in cleanPileObj) {
-          pair += solution(cleanPileObj[key])
+          pair += pairs(cleanPileObj[key])
       }
 
       return pair
